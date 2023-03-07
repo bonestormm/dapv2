@@ -1,0 +1,18 @@
+{
+    "name": "bonestorm/nixon2",
+    "type": "project",
+    "require": {
+        "phpmailer/phpmailer": "dev-master"
+    },
+    "require-dev": {
+        "twbs/bootstrap": "^5.0@beta"
+    },
+    "license": "mit",
+    "authors": [
+        {
+            "name": "Bonestorm",
+            "email": "safaroth@hotmail.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}

@@ -1,0 +1,793 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+:root {
+    --dorado: #A59678;
+    --verde: #25D366;
+  }
+img {
+    max-width: 100%;
+}
+a{
+    text-decoration: none;
+}
+.img_logo{
+    max-width: unset;
+}
+body {
+    margin: 0;
+}
+html {
+    scroll-behavior: smooth;
+}
+.container{
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+    /* added for nav-toggle positioning */
+    position: relative;
+}
+body, 
+.banner p,
+.services__explanation--primary p,
+.services__explanation--service p,
+.footer__about p{
+    font-family: 'Montserrat', sans-serif;
+}
+.banner h1,
+.nav,
+.services__explanation--primary h1,
+.banner__button,
+.service__button,    
+.features__feat h1,
+.features__title,
+.services__explanation--service h1,
+.services__explanation--all h1,
+.services__title,
+.footer__title,
+.footer__subtitle,
+.call,
+.title__services{
+    font-family: 'Oswald', sans-serif;
+}
+.nav{
+    font-size: 1.125rem;
+}
+.fila{
+    display: flex;
+    margin-top: 2em;
+    margin-bottom: .2em;
+}
+.banner h1{
+    font-size: 4rem;
+    margin: 0 auto;
+}
+.center{
+    text-align: center;
+}
+.right{
+    text-align: right;
+}
+.left{
+    text-align: left;
+}
+.justify{
+    text-align: justify;
+}
+.body__servicios{
+    background-color: #F0F0F0;
+}
+
+.servicios__service{
+    
+    margin-bottom: 1em;
+    border-radius: 1em;
+    
+}
+
+
+/* Hamburguer */
+header {
+    background: #2E323F;
+    padding: 1em 0;
+    text-align: center;
+}
+
+.nav {
+    width: 100%;
+}
+.nav-toggle {
+    cursor: pointer;
+    border: 0;
+    width: 3em;
+    height: 3em;
+    padding: 0em;
+    border-radius: 50%;
+    background: #072A2D;
+    color: white;
+    transition: opacity 250ms ease;
+    
+    position: absolute;
+    left: 0;
+}
+
+.nav-toggle:focus,
+.nav-toggle:hover {
+    opacity: .75;
+}
+
+.hamburger {
+    width: 50%;
+    position: relative;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+    display: block;
+    margin: 0 auto;
+    height: 3px;
+    background: white;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    width: 100%;
+}
+
+.hamburger::before {
+    transform: translateY(-6px);
+}
+
+.hamburger::after {
+    transform: translateY(3px);
+}
+
+/* made changes here from video
+   to make it more accessible.
+   
+   Works the same :) */
+.nav {
+    visibility: hidden;
+    height: 0;
+    position: absolute;
+    
+}
+.nav__list{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.nav__link{
+    color: white;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+.nav__link:hover, .activo{
+    color: var(--dorado);
+}
+.nav__link--button{
+    border-radius: 1em;
+    background-color: white;
+    color: #25D366;
+    padding: .25em .75em;
+}
+.nav__item{
+    margin-top: .40em;
+}
+.nav__list--primary{
+    padding-top: 1em;
+    padding-bottom:1.75em;
+}
+.nav--visible {
+    visibility: visible;
+    height: auto;
+    position: relative;
+    padding-top: 1em;
+    padding-bottom: 2em;
+} 
+/* end hamburger */
+
+.banner__button{
+    border-radius: 2em;
+    background-color: #A59678;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: white;
+    padding: .25em 1em;
+}
+.service__button{
+    /*border-radius: 2em;*/
+    background-color: #A59678;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: white;
+    padding: .25em 1em;
+    
+}
+.button__service{
+    margin: 0 auto;
+}
+.title__services{
+    font-size: 3rem;
+   text-align: center;
+   color: var(--dorado);
+}
+.servicios__service .title__services{
+    color: black;
+    font-size: 2.3rem;
+}
+
+.features__feat h1{
+    font-size: 1.875rem;
+    text-align: center;
+    color: #A59678
+}
+.services__title{
+    font-size:3rem;
+    color: #3B4050; 
+}
+.features__title{
+    font-size: 3rem;
+    color: #3B4050;
+    margin-top: -1em;
+}
+.services__explanation--primary p, .features__feat p{
+    color: #3B4050;
+}
+.services__explanation--all h1{
+    text-align: center;
+    font-size: 2rem;
+    padding: 1em .25em;
+}
+.services__explanation--all a{
+    color:var(--verde);
+}
+.services__explanation--service h1{
+    font-size: 1.875rem;
+    color: white;
+    text-align: center;
+    padding-top: 1em;
+    
+}
+.services__explanation--primary p{
+    font-size: 1.3125rem;
+}
+.services__explanation--primary h1{
+    font-size: 2.25rem;
+    color: #A59678;
+    
+}
+.services__explanation--service p{
+    font-size: 1.125rem;
+    color: white;
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+    max-width: 450px;
+    
+}
+
+.footer h1{
+    font-size: 2.5rem;
+    color: white;
+    text-align: center;
+    padding-top: 2em;
+}
+.banner{
+    background-color: #3B4050;
+    padding-bottom: 5em;
+    padding-top: 5em;
+}
+.banner p{
+    font-size: 1.5rem;
+    color: white;
+}
+.banner__title1{
+    color: white;
+}
+.banner__title2{
+   color: #A59678;
+}
+
+.features__feat p{
+    font-size: 1.125rem;
+}
+.features{
+    background-color: #F1F1F1;
+    padding-top: 5em;
+    padding-bottom: 5em;
+}
+.call_you{
+    background-color: #F1F1F1;
+    margin-top: 2em;
+}
+.form_div{
+    padding-bottom: 2em;
+}
+.services__explanation--service{
+    background-color: #3B4050; 
+    padding-bottom: 2em;
+}
+
+.services__explanation--list{
+    list-style-type: none;
+    color: #A59678;
+    text-align: center;
+    margin-left: -2.5em;
+}
+.services__explanation--item{
+    line-height: 2.3em;
+    
+}
+.footer{
+    background-color: #3B4050;
+    padding-bottom: 2em;
+}
+.footer__lists{
+justify-content: space-between;
+}
+.footer__title{
+    font-size: 1.5rem;
+    text-align: center;
+}
+.footer_nav{
+    justify-content: space-between;
+}
+.footer__subtitle{
+    font-size: 1.3125rem;
+    color: #A59678;
+}
+.footer__nav--list{
+    list-style-type: none;
+    padding: 0;
+    
+}
+.footer__nav--other{
+    text-align: center;
+}
+.footer__nav--link{
+    text-decoration: none;
+    color: #6F737F;
+}
+.footer__nav--getting{
+    margin: 0 auto;
+}
+.footer__nav--getting + .footer__nav--other{
+    margin-left: 2em;
+}
+
+.footer__nav--item{
+    line-height: 2.5em;
+}
+.footer__paragraph{
+    font-size: 1rem;
+    color: #6F737F;
+    line-height: 2rem;
+}
+.about_us{
+    max-width:430px;
+}
+.banner__paragraph{
+    align-self: flex-end;
+}
+.lavado_norma{
+    color: #A59678;
+}
+.cita_norma{
+    margin-top: 1em;
+    
+}
+.cita_norma-paragraph{
+    font-size: .9rem;
+}
+.telefono{
+    color: #A59678;
+}
+.whatsapp{
+    color: #25D366;
+}
+.fa-facebook-square:hover,
+.fa-whatsapp-square:hover{
+    color: #A59678;
+}
+.fa-tasks{
+    color: #A59678;
+}
+.footer__company_name{
+    text-align: center;
+    padding-top: 1.7rem;
+    color: #6F737F;
+}
+
+/* call us input text */
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 3px solid #2E323F;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+  }
+input[type=text]:focus {
+    border: 3px solid #A59678;
+  }
+
+input[type=tel] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 3px solid #2E323F;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+  }
+input[type=tel]:focus {
+    border: 3px solid #A59678;
+  }
+
+/* input we call you divs */
+.call{
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.form_div{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+/*carousel*/
+.mySlides {display: none}
+#img_carousel {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+    max-width: 1200px;
+    position: relative;
+    margin: auto;
+  }
+  
+  /* Next & previous buttons */
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+  }
+  
+  /* Position the "next button" to the right */
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+  }
+  
+  /* Caption text */
+  .text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  /* Number text (1/3 etc) */
+  .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+  }
+  
+  /* The dots/bullets/indicators */
+  .dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+  
+  .active, .dot:hover {
+    background-color: #717171;
+  }
+  
+  /* Fading animation */
+  .fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+  
+  @-webkit-keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+  }
+  
+  @keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+  }
+  
+  /* On smaller screens, decrease text size */
+  @media only screen and (max-width: 300px) {
+    .prev, .next,.text {font-size: 11px}
+  }
+/* fin carousel*/
+
+/* WhatsApp floating button */
+.whats-float {
+    position: fixed;
+    transform:translate(108px,0px);
+    top:25%;
+    right:0;
+    width:150px;
+    overflow: hidden;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 2px 0 0 2px;
+    z-index: 10;
+    transition: all 0.5s ease-in-out;
+    vertical-align: middle
+}
+.whats-float a span {
+    color: white;
+    font-size: 15px;
+    padding-top: 8px;
+    padding-bottom: 10px;
+    position: absolute;
+    line-height: 16px;
+    font-weight: bolder;
+}
+
+.whats-float i {
+    font-size: 30px;
+    color: white;
+    line-height: 30px;
+    padding: 10px;
+    transform:rotate(0deg);
+    transition: all 0.5s ease-in-out;
+    text-align:center;
+
+}
+
+.whats-float:hover {
+    color: #FFFFFF;
+    transform:translate(0px,0px);
+}
+
+.whats-float:hover i  {
+    transform:rotate(360deg);
+}
+
+
+  
+@media (min-width: 751px) {
+    .nav-toggle {
+        display: none;
+    }
+    .nav {
+        visibility: visible;
+        display: flex;
+        height: auto;
+        position: relative;
+        align-items: center;
+        justify-content: space-between;
+        
+    }
+    .nav__list{
+        display: flex;
+        margin: 0;
+    }
+    .nav__list--primary{
+        padding: 0;
+        margin: 0 auto;
+    }
+    
+    .row {
+        display: flex;
+        justify-content: space-between;
+    }
+    .fila{
+        display: flex;
+        margin-top: auto;
+    }
+    
+    .banner__button{
+        font-size: 1.2rem;
+    }
+    .service__button{
+        font-size: 1rem;
+    }   
+    
+    .services__explanation--secondary{
+        padding-top: 1.2em;
+        
+    }
+    
+    .nav__item{
+        margin: 0 0 0 1.5em;
+    }
+    .row{
+        display: flex;
+    }
+    .banner__title1{
+        width: 50%;
+        line-height: 1.1em;
+    }
+    h1 + div{
+        margin-left: 4em;
+    }
+    .features__feat + .features__feat{
+        margin-left: 1em;
+    }
+    .features__feat h1{
+        text-align: unset;
+    }
+    .banner__paragraph{
+        width: 50%;
+        align-self: flex-end;
+    }
+    .services__explanation--service{
+        display: flex;
+        flex-direction: column;
+    }
+    .services__explanation--all{
+        margin-top: 1em;
+        padding: 1em;
+        padding: 1em .25em;
+    }
+    .services__explanation--all h1{
+        font-size: 2.5rem;
+        padding: 0;
+    }
+    .services__explanation--service + .services__explanation--service{
+        margin-left: 1em;
+    }
+    .services__explanation--service h1{
+        margin-top: auto;
+    }
+    .footer_list{
+        justify-content: space-between;
+    }
+    .features p{
+        width: 80%;
+        text-align: center;
+        line-height: 1.5em;
+    }
+    .features__feat h1{
+        width: 80%;
+        text-align: center;
+    }
+    .about_us + .footer__nav{
+        margin-left: 2em;
+    }
+    .hr__footer{
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+    .footer__company_name{
+        padding-top: 2rem;
+        margin: 0 auto;
+    }
+    .img__service{
+        max-width: 50%;
+        
+    }
+}
+
+@media (min-width: 1000px) {/*
+    .nav-toggle {
+        display: none;
+    }
+    .nav {
+        visibility: visible;
+        display: flex;
+        height: auto;
+        position: relative;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .nav__list{
+        display: flex;
+        margin: 0;
+    }
+    .nav__list--primary{
+        padding: 0;
+        margin: 0 auto;
+    }
+    
+    .row {
+        display: flex;
+        justify-content: space-between;
+    }
+    .service__button{
+        font-size: 1.4rem;
+    } 
+    .fila{
+        display: flex;
+    }
+    .nav__item{
+        margin: 0 0 0 1.5em;
+    }
+    
+    .services__explanation--service{
+        display: block;
+    }
+    .services__explanation--service h1{
+        margin-top: 1em;
+    }
+    .services__explanation--primary{
+        width: 60%;
+    }
+    .services__explanation--secondary{
+        width: 40%;
+        
+    }
+    .wrapper{
+        display: flex;
+    }
+    .col{
+        display: block;
+    }
+    .services__explanation--primary + .services__explanation--secondary{
+        margin-left: 2em;
+        padding-top: 1em;
+    }
+    .services__explanation--service + .services__explanation--service{
+        margin: 0;
+    }*/
+    .banner h1{
+        font-size: 5.625rem
+    }
+    .banner__paragraph{
+        align-self: flex-end;
+    }
+    .services__explanation--service h1{
+        margin-top: auto;
+    }
+    .services__explanation--service p{
+        margin-top: auto;
+    }
+    .services__explanation--all h1{
+        font-size: 3rem;
+        padding: 0;
+    }
+    .servicios__service p{
+        font-size: 1.2rem;
+        width: 70%;
+        margin: 0 auto;
+        padding: 1em 1em;
+    }
+    
+}
