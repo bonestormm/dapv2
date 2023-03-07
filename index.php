@@ -1,3 +1,81 @@
+<?php
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require $_SERVER['DOCUMENT_ROOT'] . '/nixon2/mail/Exception.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/nixon2/mail/PHPMailer.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/nixon2/mail/SMTP.php';
+
+$nombre_cotice = $_POST['nombre_cotice'] ?? '';
+$numero_cotice = $_POST['numero_cotice'] ?? '';
+
+$response_captcha = $_POST['g-recaptcha-response'] ?? '';
+
+if (isset($response_captcha) && $response_captcha) {
+  $key = "6LdxpjkaAAAAAPJqQqswJVqcMElobDaK95bkrltZ";
+  $ip = $_SERVER['REMOTE_ADDR'];
+  $validation_server = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$key&response=$response_captcha&remoteip=$ip");
+  //var_dump($validation_server);
+  $array = json_decode($validation_server, true);
+  //var_dump($array);
+  if ($array["success"] == false) {
+    echo "<script>alert('Falló el envío de correo intente nuevamente, no olvide llenar el captcha.')</script>";
+  } else if ($array["success"] == true) {
+    $prueba = ";)";
+    $mail = new PHPMailer;
+    $mail->isSMTP();
+    $mail->SMTPDebug = 0; // 0 = off (for production use) - 1 = client messages - 2 = client and server messages
+    $mail->Host = "smtp.gmail.com"; // Define el servidor de correos de smtp.
+    $mail->Port = 587; // TLS only
+    $mail->SMTPSecure = 'tls'; // ssl is deprecated
+    $mail->SMTPAuth = true;
+    $mail->Username = 'safarothh@gmail.com'; // email emisor
+    $mail->Password = 'jlziecieacelhhog'; // password del email emisor
+    $mail->setFrom('safarothh@gmail.com', 'DAP Fumigaciones'); // Correo que se muestra en la vista previa y el nombre de quién lo envía
+    $mail->addAddress('k.o.fumigaciones@gmail.com'); // Correo receptor.
+    $mail->Subject = $_POST['nombre_cotice']." ha solicitado una llamada!"; //Asunto
+    $mail->msgHTML("<table style='min-width: 600px; padding: 10px; margin:0 auto; border-collapse: collapse;'>
+    <br>        
+    <tr>
+        <td style='background-color: #ecf0f1'>
+            <div class='titulo' style='display: flex; margin-top: 1em; '>
+                <h1 style='text-align:center; margin: 0 auto;'> <b>Nueva solicitud de llamada</b></h1>
+            </div>
+            
+            <div style='color: #34495e; margin: 4% 10% 2%; text-align: justify;font-family: sans-serif'>
+                <h2 style='color: #e67e22; margin: 0 0 7px'>La persona <b style='text-decoration: none; color: black;'>{$nombre_cotice}</b></h2> 
+                <p style='margin: 2px; font-size: 15px'>
+                    Ha solicitado una llamada.
+                </p>
+                <br>
+                <div style='width: 100%; text-align: center'>
+                    <a style='text-decoration: none; border-radius: 5px; padding: 11px 23px; color: white; background-color: #25D366' href='tel:+57{$numero_cotice}'>Llamar ahora</a>	
+                </div>
+                <p style='color: #b3b3b3; font-size: 12px; text-align: center;margin: 30px 0 0'>Fumigaciones K.O</p>
+            </div>
+        </td>
+    </tr>
+    </table>");
+    //Cuerpo del mensaje                //Cuerpo del mensaje                        //$mail->msgHTML(file_get_contents('contents.html'), __DIR__); //Read an HTML message body from an external file, convert referenced images to embedded,
+    $mail->AltBody = 'HTML messaging not supported'; // If html emails is not supported by the receiver, show this body
+    // $mail->addAttachment('images/phpmailer_mini.png'); //Attach an image file
+    $mail->CharSet = 'UTF-8';
+    $mail->SMTPOptions = array(
+      'ssl' => array(
+        'verify_peer' => false,
+        'verify_peer_name' => false,
+        'allow_self_signed' => true
+      )
+    );
+    if (!$mail->send()) {
+      //echo "Mailer Error: " . $mail->ErrorInfo; //Si pasa algo malo en el metodo Error info sale qué pasó.
+    } else {
+      echo "<script>alert('¡Hemos recibido su número, tan pronto podamos lo llamaremos!')</script>"; //Si sale bien
+    }
+  }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
